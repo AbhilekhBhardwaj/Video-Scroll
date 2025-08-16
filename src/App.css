@@ -1,0 +1,508 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Host+Grotesk:ital,wght@0,300..800;1,300..800&display=swap");
+
+:root {
+  --fg: #241910;
+  --bg: #fefbf4;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "DM Mono", monospace;
+}
+
+.app {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+h1 {
+  font-family: "Host Grotesk";
+  font-size: 3rem;
+  font-weight: 400;
+  line-height: 1.1;
+}
+
+p {
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+a {
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--fg);
+}
+
+.btn {
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.25rem;
+}
+
+.btn.primary {
+  background-color: var(--bg);
+}
+
+.btn.primary a {
+  color: var(--fg);
+}
+
+.btn.secondary {
+  background-color: var(--fg);
+}
+
+.btn.secondary a {
+  color: var(--bg);
+}
+
+nav {
+  position: fixed;
+  width: 100vw;
+  padding: 1.5rem 2rem;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  will-change: opacity;
+  z-index: 2;
+}
+
+nav > div {
+  flex: 1;
+}
+
+nav .nav-links {
+  display: flex;
+  gap: 3rem;
+}
+
+nav .logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+nav .logo img {
+  width: 2rem;
+}
+
+nav .logo a {
+  text-transform: none;
+  font-family: "Host Grotesk";
+  font-size: 1.5rem;
+}
+
+nav .nav-buttons {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: flex-end;
+}
+
+section {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100svh;
+  overflow: hidden;
+}
+
+/* Outro Styles */
+.outro {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) translateZ(1000px);
+  width: 100vw;
+  height: 100vh;
+  background: #f8f9fa;
+  color: #333;
+  opacity: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  will-change: transform, opacity;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  overflow: hidden;
+}
+
+.outro-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.outro-content * {
+  pointer-events: auto;
+}
+
+.outro-content h2 {
+  font-size: 4rem;
+  font-weight: 500;
+  letter-spacing: -0.04rem;
+  line-height: 1.2;
+  user-select: none;
+  text-align: center;
+  color: #333;
+  font-family: "Host Grotesk";
+}
+
+.outro-content p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: #ccc;
+  text-align: center;
+  margin-top: 1rem;
+  font-family: "DM Mono";
+  text-transform: none;
+  letter-spacing: 0.5px;
+}
+
+.floating-elements-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 5;
+}
+
+/* Animated Background */
+.animated-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.background-grid {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.grid-dot {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  animation: pulse 3s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.3;
+  }
+  50% {
+    transform: scale(1.5);
+    opacity: 0.8;
+  }
+}
+
+/* Particles */
+.particles-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.particle {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: linear-gradient(45deg, #fff, #00ffff);
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
+  animation: particleFloat 4s linear infinite;
+}
+
+@keyframes particleFloat {
+  0% {
+    transform: translateY(0) scale(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+    transform: translateY(-10px) scale(1);
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100px) scale(0);
+    opacity: 0;
+  }
+}
+
+/* Enhanced Floating Elements */
+.floating-element {
+  position: absolute;
+  opacity: 0.4;
+  filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.4));
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.floating-element.large {
+  font-size: 4rem;
+}
+
+.floating-element.medium {
+  font-size: 3rem;
+}
+
+.floating-element.small {
+  font-size: 2rem;
+}
+
+.floating-element:hover {
+  filter: drop-shadow(0 0 25px rgba(255, 255, 255, 0.8));
+  opacity: 0.8;
+}
+
+/* Character Animation */
+.char {
+  display: inline-block;
+  transform-origin: center;
+  animation: charFloat 2s ease-in-out infinite;
+}
+
+.char:nth-child(even) {
+  animation-delay: 0.5s;
+}
+
+@keyframes charFloat {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-5px) rotate(2deg);
+  }
+}
+
+/* Enhanced floating animation */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg) scale(1);
+  }
+  25% {
+    transform: translateY(-20px) rotate(5deg) scale(1.05);
+  }
+  50% {
+    transform: translateY(-30px) rotate(0deg) scale(1.1);
+  }
+  75% {
+    transform: translateY(-20px) rotate(-5deg) scale(1.05);
+  }
+}
+
+.object-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.object {
+  position: absolute;
+  width: max-content;
+  font-size: 2rem;
+  font-weight: 500;
+  background-color: #fff;
+  color: #0f0f0f;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  cursor: grab;
+  user-select: none;
+  pointer-events: auto;
+  z-index: 2;
+}
+
+.object:active {
+  cursor: grabbing;
+}
+
+.object p {
+  margin: 0;
+  font-size: inherit;
+  font-weight: inherit;
+  color: inherit;
+}
+
+@media (max-width: 1000px) {
+  .outro-content h2 {
+    font-size: 2rem;
+  }
+
+  .object {
+    font-size: 1rem;
+  }
+}
+
+/* Physics Section Styles */
+.physics-section {
+  background: #0f0f0f;
+  color: #fff;
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.physics-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.physics-content * {
+  pointer-events: auto;
+}
+
+.physics-content h2 {
+  font-family: "Host Grotesk";
+  font-size: 3rem;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  user-select: none;
+  text-align: center;
+  color: #fff;
+  margin-bottom: 1rem;
+}
+
+.physics-content p {
+  font-family: "DM Mono";
+  font-size: 1rem;
+  font-weight: 400;
+  text-transform: none;
+  color: rgba(255, 255, 255, 0.7);
+  text-align: center;
+}
+
+.hero {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  background-color: var(--bg);
+  z-index: 1;
+}
+
+canvas {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-content {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translateX(-50%);
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  padding: 0.5rem 0;
+}
+
+.header {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  text-align: center;
+  color: var(--fg);
+  transform-origin: center;
+  will-change: transform, opacity;
+}
+
+.header h1 {
+  width: 50%;
+  margin-bottom: 0.5rem;
+}
+
+.header p {
+  opacity: 0.35;
+}
+
+.hero-img-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50%;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+.hero-img {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform: translateZ(1000px);
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+@media (max-width: 1000px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  nav .nav-links,
+  nav .nav-buttons {
+    display: none;
+  }
+
+  .header h1,
+  .hero-img-container {
+    width: calc(100% - 4rem);
+  }
+}
