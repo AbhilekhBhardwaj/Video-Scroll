@@ -27,7 +27,7 @@ const Hero: React.FC = () => {
         setImagesLoaded(loadedCount);
       };
 
-      const onError = (index: number) => {
+      const onError = () => {
         errorCount++;
         loadedCount++;
         setImagesLoaded(loadedCount);
@@ -36,7 +36,7 @@ const Hero: React.FC = () => {
       for (let i = 0; i < frameCount; i++) {
         const img = new Image();
         img.onload = onLoad;
-        img.onerror = () => onError(i);
+        img.onerror = () => onError();
         img.src = currentFrame(i);
         imageArray.push(img);
       }

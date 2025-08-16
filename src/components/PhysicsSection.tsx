@@ -140,7 +140,7 @@ const PhysicsSection: React.FC = () => {
       }
     });
 
-    Matter.Events.on(mouseConstraint, 'enddrag', function (event: any) {
+    Matter.Events.on(mouseConstraint, 'enddrag', function () {
       if (dragging) {
         Matter.Body.setInertia(dragging, originalInertia || 1);
         dragging = null;
@@ -172,15 +172,15 @@ const PhysicsSection: React.FC = () => {
 
     container.addEventListener('mouseleave', () => {
       if (mouseConstraint.constraint) {
-        mouseConstraint.constraint.bodyB = null;
-        mouseConstraint.constraint.pointB = null;
+        mouseConstraint.constraint.bodyB = null as any;
+        mouseConstraint.constraint.pointB = null as any;
       }
     });
 
     document.addEventListener('mouseup', () => {
       if (mouseConstraint.constraint) {
-        mouseConstraint.constraint.bodyB = null;
-        mouseConstraint.constraint.pointB = null;
+        mouseConstraint.constraint.bodyB = null as any;
+        mouseConstraint.constraint.pointB = null as any;
       }
     });
 
